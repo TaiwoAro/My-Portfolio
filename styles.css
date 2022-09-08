@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Poppins&family=Raleway&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Poppins&family=Raleway&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
 
 
 *, *::before, *::after {
@@ -12,35 +13,56 @@
       --red-color: #be3144;
       --white-color: #f0f0f0;
 }
-header {
-  background-color: var(--red-color);
-  width: 100%;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--red-color);
+      color: var(--white-color);
 }
-#profile-link {
-  text-decoration: none;
-  color: var(--white-color);
-  font-family: 'Poppins', sans-serif;
-  font-size: 24px;
-  height: 80px;
-  width: 100%;
-  padding-top: 20px;
+.brand-name {
+      font-size: 40px;
+      font-family: 'Comic Neue', cursive;
+      margin: 1rem;
 }
-#profile-link:hover {
+.profile-link ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+}
+.profile-link li {
+      list-style: none;
+}
+.profile-link li a:hover {
       background-color: #44567C;
 }
-#navbar {
-  width: max(390px, 30%);
-  text-align: center;
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  right: 0;
-
+.profile-link li a {
+      text-decoration: none;
+      display: block;
+      padding: 1.2rem;
+      color: var(--white-color);
+      font-family: 'Poppins', sans-serif;
+      font-size: 26px;
 }
+
+/* TOGGLE BUTTON */
+
+.toggle-button {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+}
+.toggle-button .bar {
+      height: 3px;
+      width: 100%;
+      background-color: var(--white-color);
+      border-radius: 10px;
+}      
 section {
   width: 100%;
 }
@@ -56,13 +78,16 @@ section {
   text-align: center;
   margin: 0 auto;
   position: relative;
-  top: 50%;
+  top: 45%;
   border-right: 2px solid var(--red-color);
   white-space: nowrap;
   overflow: hidden;
   width: 550px;
   /* transform: translateY(-50%) */
 }
+
+/* TYPEWRITER ANIMATION */
+
 .anim-typewriter {
       animation: typewriter 3s steps(30) 1s 1 normal both,
       BlinkTextCursor 400ms steps(30) infinite normal;
@@ -85,8 +110,10 @@ section {
             border-right-color: transparent;
       }
 }
+
+/* TEXT GRADIENT */
+
 .name {
-  /* text-transform: uppercase; */
   font-weight: 800;
   background: linear-gradient(180deg, var(--white-color) 1%, var(--red-color));
   -webkit-background-clip: text;
@@ -191,12 +218,12 @@ button:hover .fa-right-long{
 }
 .space {
       width: 100%;
-      height: 220px;
+      height: 210px;
 }
 #contact {
       background: #303841;
       width: 100%;
-      height: 500px;
+      height: 550px;
 }
 .social-icon {
       display: grid;
@@ -204,20 +231,17 @@ button:hover .fa-right-long{
       grid-auto-flow: column;
       grid-auto-columns: 1fr;
       justify-items: center;
-      /* border: 1px solid; */
-      /* padding-left: 150px; */
       padding-top: 20px;
 
 }
-/* .social-icon:hover {
-      
-} */
 i {
       color: var(--white-color);
       font-family: 'Poppins', sans-serif;
       font-size: 70px;
       font-weight: 400;
-
+}
+i:hover {
+      color: var(--red-color);
 }
 .contact-text {
       font-family: 'Raleway', sans-serif;
@@ -225,9 +249,9 @@ i {
       font-size: 60px;
       text-align: center;
       color: var(--white-color);
-      padding-top: 10%;
+      padding-top: 13.75%;
 }
-.coffee {
+.connect {
       font-family: 'Poppins', sans-serif;
       font-size: 18px;
       font-weight: 100;
@@ -255,13 +279,83 @@ footer > p {
       padding-top: 30px;
 }
 .copyright {
-      padding-left: 300px;
+      padding-left: 250px;
 }
 
 
 
-@media (max-width: 746px) {
-  h1 {
-    font-size: 40px;
-  }
+@media (max-width: 500px) {
+      .about, i {
+            font-size: 35px;
+      }
+      #contact {
+            height: 350px;
+      }
+      .contact-text {
+            font-size: 35px;
+            padding-top: 30%;
+      }
+      .anim-typewriter {
+      animation: typewriter 3s steps(20) 1s 1 normal both,
+      BlinkTextCursor 400ms steps(20) infinite normal;
+}
+@keyframes typewriter {
+      from { 
+            width: 0;
+      }
+      to {
+            width: 360px;
+      }
+}
+
+@keyframes BlinkTextCursor {
+      from {
+            border-right-color: var(--red-color);
+      }
+      to {
+            border-right-color: transparent;
+      }
+}
+      .work {
+            font-size: 20px;
+      }
+      .heading {
+            font-size: 25px;
+      }
+      .connect {
+            font-size: 12px;
+      }
+      footer > p {
+            font-size: 10px;
+      }
+      .copyright {
+            padding-left: 15px;
+      }
+      
+      /* TOGGLE BUTTON MEDIA QUERY */
+      .toggle-button {
+            display: flex;
+      }
+      .profile-link {
+            display: none;
+            width: 100%;
+      }
+      #navbar {
+            flex-direction: column;
+            align-items: flex-start;
+      }
+      .profile-link ul {
+            flex-direction: column;
+            width: 100%;
+      }
+      .profile-link li {
+            text-align: center;
+      }
+      .profile-link li a {
+            padding: .4rem .9rem;
+      }
+      .profile-link.active {
+            display: flex;
+      }
+      
 }
